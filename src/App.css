@@ -1,0 +1,58 @@
+.app-container {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px; /* 타이틀 크기 축소 */
+}
+
+.calendar-event {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.registered-count {
+  color: black;
+  font-size: 14px;
+}
+
+.not-registered-count {
+  color: red;
+  font-size: 14px;
+}
+
+/* 모달 스타일 */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 80%;
+  max-width: 400px;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.product-link {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.product-link:hover {
+  color: darkblue;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

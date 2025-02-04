@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "crucial-kayak-448900-g4",
+  "private_key_id": "7830e24659ea42d65d2c20541bb7b09f48538b54",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmgN6kA3lQ5qTE\nhgrZ/31Gb/KUP8L0IEuQ/8vG/GZeo8jEwkKGmKaEfrKcV6Tlq+ErMS16FtbM3JAj\n0b8OJKwSPgb+I5/PrxxeWfeDlnc9sbOm8GeyBLfj0XPkC+DJH708T649OjJLUYGP\nCydKXiwljsBE1bjKpAX70p7JLfHHzUNbjalBzsVJdSA3cc8EMVkHq+U+X/NWDWnq\nN2g6Oad7F2HKua2VmsRw/gK7JBiGzS0lbjN6GHh8EnX6xPedZq4R9M3JL3cKzbcz\nS29IYbK09KMsxaJY/HXl7sU4uhawdA5MuymcMp01kdPkGMNnhEfU6h2xTB3+yIiu\nU0I4rnxvAgMBAAECggEAQ6S9TsK+iZh6PgD67Z+3RGN8mK/iww1PxeO15Oxrpm1B\nxnXpUwc3N0LFy3Br5IbUnpiHEj+vGmFNCdBPny5U3cBnVN4iMdzBWK+SN9psLRtB\nkkO+zPrPvnU8cNxGgU8ssRDqB6PaBPFjAjsUxkjGBKgfApgVT/YdHDZwHelVfccF\nC3mlOyVfN9mYjzKyEcp1A6lKbXarR3iALwdtn06U43CMf1A5PYGYzlTV0Oa8PTjH\nlLgOYJ+BcwexKMOb5IdbwrO9UuiLsZnbRpnPdNYXPb7k6O+Kc8XaPTFztI6umw0o\nLaWNXiGL7MrFY8BowubkkntSllvRcAWerRZvFBVwIQKBgQDghM060ASFXgvh+ALJ\nQguAb5drX/pImHiDRn4SdQbP0xhwl5c3DcJXj7qCm1tJnbQL9tgg2NC2VZAu4WcN\nRyXgZfQm5KGcrncx4wyFQHDzWBMucZqzWMJTkgc8buqmNx48WlnDUPJ88UIuiK0v\nYvEZ4SiEdW5AjmpSHZlSmq288QKBgQC92ZTb5PGBG3gCBXFp//ySFgFImo13TIBg\nTY7PpyPcPg2nXgepHi2I1N0eSMIiUj90/ciqhYhQHubtDM1gQ4ysOvG9IEitPGkq\nXE1a+2qZE84iEoj76S1MRJ6YgkBnmhOgyX2IcxYbnCM9875NCWojVWXXfA17BWZ8\nJu5f71dPXwKBgQCPI1uMYU5gkKLWv71W/ipDCeHpbNkuKza5ytlZfw6GtLhiH+Mi\nED2UgWeRGObMOiStdAQ6fMAjXs17deyzRGbbd2R+30hBkeEgBvbWhUz9d2tTMs5E\nBRRvHyxJ1RT4Py+hnqCXqyXNjip5bF2tVlEMBMZGHG/b7G/QRlqXlVGqoQKBgE1d\npKbzpmMZoY8ZTr2GnxOdOgqvSOUL3Ojh0kfW8esnsoK48+A8NwwiyrUzq0E3STrQ\nzPyIjCMyZKLHa85F2Ma7ApYy2MsX6jdkA/YGrMsS4hbKfN5DiL0i3YqC0eImTMdi\nNPDtDV5VA5uUf8F/C6y4eVcV65xtd/UyHEQmEet7AoGBALjrYhvaA8ltUZj7wADP\n2EyI6ZGJbFjvoak9f2jpDhxv1ovU9WDxm2ic1Tk6iJits9a1R2uvd6RbvquS4L+z\nMDyAgLlQ23cL39ho4hrANomhnF330+cech80n4+83RSlOCfxP5qvvY1DMY+Ys1Ii\nmk1fAncmRNvJk14PyP7iQP0m\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets@crucial-kayak-448900-g4.iam.gserviceaccount.com",
+  "client_id": "115147900618716860993",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets%40crucial-kayak-448900-g4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
