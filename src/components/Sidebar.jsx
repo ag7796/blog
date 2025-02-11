@@ -1,17 +1,10 @@
-import React from "react";
+import React from 'react';
 
-function Sidebar({ setViewMode, viewMode }) {
+function Sidebar({ setViewMode }) {
   return (
     <div className="sidebar">
-      <h2>상품 등록 관리</h2>
-      <ul>
-        <li onClick={() => setViewMode("calendar")} className={viewMode === "calendar" ? "active" : ""}>
-          📅 캘린더 뷰
-        </li>
-        <li onClick={() => setViewMode("list")} className={viewMode === "list" ? "active" : ""}>
-          📋 게시판 뷰
-        </li>
-      </ul>
+      <button onClick={() => setViewMode('calendar')}>Calendar View</button>
+      <button onClick={() => setViewMode('list')}>List View</button>
     </div>
   );
 }

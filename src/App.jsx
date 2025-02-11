@@ -1,20 +1,39 @@
-import React, { useState } from "react";
-import Sidebar from "./components/Sidebar";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import CalendarView from "./components/CalendarView";
 import ListView from "./components/ListView";
+import Sidebar from "./components/Sidebar";
 import "./App.css";
 
 function App() {
-  const [viewMode, setViewMode] = useState("calendar"); // "calendar" or "list"
+  const [isLoaded, setIsLoaded] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("🚀 App Component Loaded!");
+    setIsLoaded(true);
+  }, []);
+
+  const setViewMode = (mode) => {
+    if (mode === 'calendar') {
+      navigate('/');
+    } else if (mode === 'list') {
+      navigate('/list');
+    }
+  };
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;  // 만약 isLoaded가 false면 Loading 화면 표시
+  }
 
   return (
     <div className="app-container">
-      {/* 왼쪽 사이드바 */}
-      <Sidebar setViewMode={setViewMode} viewMode={viewMode} />
-      
-      {/* 선택한 뷰 표시 */}
-      <div className="main-content">
-        {viewMode === "calendar" ? <CalendarView /> : <ListView />}
+      <Sidebar setViewMode={setViewMode} />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<CalendarView />} />
+          <Route path="/list" element={<ListView />} />
+        </Routes>
       </div>
     </div>
   );
