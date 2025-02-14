@@ -22,16 +22,14 @@ const CalendarView = () => {
         console.log("✅ 서버 업데이트 완료:", response);
 
         setEvents((prevEvents) => {
-          console.log("🧐 기존 prevEvents 상태:", prevEvents);
-          
-          const newEvents = prevEvents.map((e) =>
+          const updatedEvents = prevEvents.map((e) => 
             e.키열 === updatedItem.키열
               ? { ...e, 등록여부: newStatus, title: e.title || "이름 없음", date: e.date }
               : e
           );
 
-          console.log("🔄 업데이트 후 새로운 events 상태:", newEvents);
-          return newEvents;
+          console.log("🔄 업데이트 후 새로운 events 상태:", updatedEvents);
+          return updatedEvents; // 🔥 기존 이벤트를 유지하면서 업데이트된 항목만 변경
         });
       } else {
         console.error("❌ 업데이트 실패:", response.error);
@@ -45,6 +43,11 @@ const CalendarView = () => {
     console.log("📌 이벤트 상태 변경됨:", events);
   }, [events]);
 
+  // 🔥 handleDateClick 추가 (없으면 실행 시 에러 발생 가능)
+  const handleDateClick = (info) => {
+    console.log("📅 날짜 클릭됨:", info.dateStr);
+  };
+
   return (
     <div className="app-container">
       <h2>Calendar View</h2>
@@ -53,7 +56,7 @@ const CalendarView = () => {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         events={events}
-        dateClick={handleDateClick}
+        dateClick={handleDateClick} // 🔥 추가
       />
     </div>
   );
