@@ -42,11 +42,7 @@ const CalendarView = () => {
   };
 
   useEffect(() => {
-    console.log("📌 Events 상태 변경 감지됨:", events);
-  }, [events]);
-
-  useEffect(() => {
-    console.log("📌 FullCalendar 이벤트 반영됨:", events);
+    console.log("📌 이벤트 상태 변경됨:", events);
   }, [events]);
 
   return (
