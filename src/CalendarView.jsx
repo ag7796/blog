@@ -10,7 +10,8 @@ const CalendarView = () => {
     event.preventDefault();
     event.stopPropagation();
 
-    console.log("Starting handleUpdateStatus with item:", item);
+    console.log("🔹 클릭된 아이템:", item);
+    console.log("🔹 업데이트 전 events 상태:", events);
 
     const updatedItem = { ...item, 등록여부: newStatus };
 
@@ -18,40 +19,41 @@ const CalendarView = () => {
       const response = await updateRegistrationStatus(updatedItem, newStatus);
 
       if (response.success) {
-        console.log("Updated item:", response);
+        console.log("✅ 서버 업데이트 완료:", response);
 
         setEvents((prevEvents) => {
-          return prevEvents.map((e) => {
-            if (e.키열 === updatedItem.키열) {
-              return {
-                ...e,
-                등록여부: newStatus,
-                title: e.title || "이름 없음", // 🔥 title 유지
-                date: e.date, // 🔥 기존 날짜 유지
-              };
-            }
-            return e;
-          });
-        });
+          console.log("🧐 기존 prevEvents 상태:", prevEvents);
+          
+          const newEvents = prevEvents.map((e) =>
+            e.키열 === updatedItem.키열
+              ? { ...e, 등록여부: newStatus, title: e.title || "이름 없음", date: e.date }
+              : e
+          );
 
-        console.log("✅ Updated events list:", events);
+          console.log("🔄 업데이트 후 새로운 events 상태:", newEvents);
+          return newEvents;
+        });
       } else {
-        console.error("❌ Update failed:", response.error);
+        console.error("❌ 업데이트 실패:", response.error);
       }
     } catch (error) {
-      console.error("Error updating status:", error);
+      console.error("❌ 상태 업데이트 중 오류 발생:", error);
     }
   };
 
   useEffect(() => {
-    console.log("📌 Updated events state:", events);
+    console.log("📌 Events 상태 변경 감지됨:", events);
+  }, [events]);
+
+  useEffect(() => {
+    console.log("📌 FullCalendar 이벤트 반영됨:", events);
   }, [events]);
 
   return (
     <div className="app-container">
       <h2>Calendar View</h2>
       <FullCalendar
-        key={JSON.stringify(events)} // 🔥 강제 리렌더링
+        key={JSON.stringify(events)} // 🔥 이벤트 변경 강제 반영
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         events={events}
