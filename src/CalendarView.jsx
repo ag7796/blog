@@ -6,6 +6,7 @@ import { updateRegistrationStatus } from './api';
 const CalendarView = () => {
   const [events, setEvents] = useState([]);
 
+  // 🔹 상태 업데이트 함수
   const handleUpdateStatus = async (item, newStatus, event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -21,15 +22,20 @@ const CalendarView = () => {
       if (response.success) {
         console.log("✅ 서버 업데이트 완료:", response);
 
+        // 🔥 기존 상태 업데이트 방식 변경 (새로운 배열로 업데이트)
         setEvents((prevEvents) => {
-          const updatedEvents = prevEvents.map((e) => 
+          const newEvents = prevEvents.map((e) =>
             e.키열 === updatedItem.키열
-              ? { ...e, 등록여부: newStatus, title: e.title || "이름 없음", date: e.date }
+              ? { 
+                  ...e, 
+                  등록여부: newStatus, 
+                  title: `등록완료: ${updatedItem.등록완료}, 미등록: ${updatedItem.미등록}`, 
+                  start: e.start || updatedItem.일자 // 🔥 undefined 방지
+                }
               : e
           );
-
-          console.log("🔄 업데이트 후 새로운 events 상태:", updatedEvents);
-          return updatedEvents; // 🔥 기존 이벤트를 유지하면서 업데이트된 항목만 변경
+          console.log("🔄 업데이트 후 새로운 events 상태:", newEvents);
+          return [...newEvents]; // 🔥 새로운 배열을 반환하여 상태 변경 감지
         });
       } else {
         console.error("❌ 업데이트 실패:", response.error);
@@ -39,24 +45,19 @@ const CalendarView = () => {
     }
   };
 
+  // 🔹 상태 변화 감지 로그
   useEffect(() => {
     console.log("📌 이벤트 상태 변경됨:", events);
   }, [events]);
-
-  // 🔥 handleDateClick 추가 (없으면 실행 시 에러 발생 가능)
-  const handleDateClick = (info) => {
-    console.log("📅 날짜 클릭됨:", info.dateStr);
-  };
 
   return (
     <div className="app-container">
       <h2>Calendar View</h2>
       <FullCalendar
-        key={JSON.stringify(events)} // 🔥 이벤트 변경 강제 반영
+        key={events.length} // 🔥 강제 리렌더링
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
-        events={events}
-        dateClick={handleDateClick} // 🔥 추가
+        events={[...events]} // 🔥 새로운 배열 전달하여 변화 감지
       />
     </div>
   );
